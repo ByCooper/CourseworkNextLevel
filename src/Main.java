@@ -39,5 +39,23 @@ public class Main {
         System.out.println();
 
 
+//Повышенная сложность =================================================================================================
+        Employee.indexSalary(employees, 10);
+        System.out.println();
+        Employee.getMinimalSalary(employees, 5);
+        System.out.println();
+        Employee.getMaximalSalary(employees, 2);
+        System.out.println();
+        Employee.getAllSalaryOffice(employees, 2);
+        System.out.println();
+        Employee.getAverageSalaryOffice(employees, 2);
+        System.out.println();
+        Employee.getIndexSalaryOffice(employees, 2, 10);
+        System.out.println();
+        Employee.getAllEmployeeOffice(employees, 4);
+        System.out.println();
+        Employee.sourceSalaryOfEmployeeLow(employees, 17000);
+        System.out.println();
+        Employee.sourceSalaryOfEmployeeHigh(employees, 19000);
     }
 }
