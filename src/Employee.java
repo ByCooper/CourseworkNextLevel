@@ -9,12 +9,6 @@ public class Employee {
     private int salary;
     private int id;
     private static int count;
-//Для задания повышенной сложности ================================================================================
-    static int min = 0;
-    static Employee minU;
-    static int max;
-    static Employee maxU;
-
 
 
     public Employee(String fName, String mName, String lName, int office, int salary) {
