@@ -19,7 +19,7 @@ public class Main {
         employees[1] = employee2;
         employees[2] = employee3;
         employees[3] = employee4;
-        employees[4] = employee5;
+        //employees[4] = employee5;
         employees[5] = employee6;
         employees[6] = employee7;
         employees[7] = employee8;
@@ -64,8 +64,10 @@ public class Main {
         int sum = 0;
         int a = 0;
         for (int i = 0; i <= o.length - 1; i++) {
-            a = o[i].getSalary();
-            sum = sum + a;
+            if (o[i] != null) {
+                a = o[i].getSalary();
+                sum = sum + a;
+            }
         }
         return sum;
     }
@@ -74,9 +76,11 @@ public class Main {
         int min = o[0].getSalary();
         Employee unitMin = o[0];
         for (int i = 0; i <= o.length - 1; i++) {
-            if (min > o[i].getSalary()) {
-                min = o[i].getSalary();
-                unitMin = o[i];
+            if (o[i] != null) {
+                if (min > o[i].getSalary()) {
+                    min = o[i].getSalary();
+                    unitMin = o[i];
+                }
             }
         }
         System.out.println("Минимальная зарплата по организации: " + "\n" + unitMin);
@@ -86,9 +90,11 @@ public class Main {
         int max = o[0].getSalary();
         Employee unitMax = o[0];
         for (int i = 0; i <= o.length - 1; i++) {
-            if (max < o[i].getSalary()) {
-                max = o[i].getSalary();
-                unitMax = o[i];
+            if (o[i] != null) {
+                if (max < o[i].getSalary()) {
+                    max = o[i].getSalary();
+                    unitMax = o[i];
+                }
             }
         }
         System.out.println("Максимальная зарплата по организации: " + "\n" + unitMax);
@@ -101,7 +107,9 @@ public class Main {
 
     private static void allName(Employee[] o) {
         for (int i = 0; i <= o.length - 1; i++) {
-            System.out.println(o[i].getMiddleName() + " " + o[i].getFirstName() + " " + o[i].getLastName());
+            if (o[i] != null) {
+                System.out.println(o[i].getMiddleName() + " " + o[i].getFirstName() + " " + o[i].getLastName());
+            }
         }
     }
 
@@ -109,8 +117,10 @@ public class Main {
     private static void indexSalary(Employee[] o, int percent) {
         System.out.println("Повышение зарплаты на " + percent + " %");
         for (int i = 0; i <= o.length - 1; i++) {
-            o[i].setSalary(o[i].getSalary() + (o[i].getSalary() * percent / 100));
-            System.out.println(o[i]);
+            if (o[i] != null) {
+                o[i].setSalary(o[i].getSalary() + (o[i].getSalary() * percent / 100));
+                System.out.println(o[i]);
+            }
         }
     }
 
@@ -118,22 +128,28 @@ public class Main {
         int min = 0;
         Employee minU;
         for (int i = 0; i <= o.length - 1; i++) {
-            if (o[i].getOffice() == office) {
-                min = o[i].getSalary();
-                break;
+            if (o[i] != null) {
+                if (o[i].getOffice() == office) {
+                    min = o[i].getSalary();
+                    break;
+                }
             }
         }
         for (int j = 0; j <= o.length - 1; j++) {
-            if (o[j].getOffice() == office) {
-                if (min > o[j].getSalary()) {
-                    min = o[j].getSalary();
+            if (o[j] != null) {
+                if (o[j].getOffice() == office) {
+                    if (min > o[j].getSalary()) {
+                        min = o[j].getSalary();
+                    }
                 }
             }
         }
         for (int i = 0; i <= o.length - 1; i++) {
-            if (min == o[i].getSalary() && o[i].getOffice() == office) {
-                minU = o[i];
-                System.out.println("Минимальная зарплата в отделе: " + "\n" + minU);
+            if (o[i] != null) {
+                if (min == o[i].getSalary() && o[i].getOffice() == office) {
+                    minU = o[i];
+                    System.out.println("Минимальная зарплата в отделе: " + "\n" + minU);
+                }
             }
         }
     }
@@ -142,22 +158,28 @@ public class Main {
         int max = 0;
         Employee maxU;
         for (int i = 0; i <= o.length - 1; i++) {
-            if (o[i].getOffice() == office) {
-                max = o[i].getSalary();
-                break;
+            if (o[i] != null) {
+                if (o[i].getOffice() == office) {
+                    max = o[i].getSalary();
+                    break;
+                }
             }
         }
         for (int j = 0; j <= o.length - 1; j++) {
-            if (o[j].getOffice() == office) {
-                if (max < o[j].getSalary()) {
-                    max = o[j].getSalary();
+            if (o[j] != null) {
+                if (o[j].getOffice() == office) {
+                    if (max < o[j].getSalary()) {
+                        max = o[j].getSalary();
+                    }
                 }
             }
         }
         for (int i = 0; i <= o.length - 1; i++) {
-            if (max == o[i].getSalary() && o[i].getOffice() == office) {
-                maxU = o[i];
-                System.out.println("Максимальная зарплата в отделе: " + "\n" + maxU);
+            if (o[i] != null) {
+                if (max == o[i].getSalary() && o[i].getOffice() == office) {
+                    maxU = o[i];
+                    System.out.println("Максимальная зарплата в отделе: " + "\n" + maxU);
+                }
             }
         }
     }
@@ -166,9 +188,11 @@ public class Main {
         int sum = 0;
         int a;
         for (int j = 0; j <= o.length - 1; j++) {
-            if (o[j].getOffice() == office) {
-                a = o[j].getSalary();
-                sum = sum + a;
+            if (o[j] != null) {
+                if (o[j].getOffice() == office) {
+                    a = o[j].getSalary();
+                    sum = sum + a;
+                }
             }
         }
         System.out.println("Сумма затрат на зарплату по отделу № " + office + " составляет " + sum + " RUB");
@@ -179,10 +203,12 @@ public class Main {
         int a;
         int k = 0;
         for (int j = 0; j <= o.length - 1; j++) {
-            if (o[j].getOffice() == office) {
-                a = o[j].getSalary();
-                sum = sum + a;
-                ++k;
+            if (o[j] != null) {
+                if (o[j].getOffice() == office) {
+                    a = o[j].getSalary();
+                    sum = sum + a;
+                    ++k;
+                }
             }
         }
         double averageSalaryOffice = (double) sum / k;
@@ -192,9 +218,11 @@ public class Main {
     private static void getIndexSalaryOffice(Employee[] o, int office, int percent) {
         System.out.println("Зарплата сотрудников " + office + " отдела, после индексации на " + percent + " %");
         for (int j = 0; j <= o.length - 1; j++) {
-            if (o[j].getOffice() == office) {
-                o[j].setSalary(o[j].getSalary() + ( o[j].getSalary() * percent) / 100);
-                System.out.println(o[j]);
+            if (o[j] != null) {
+                if (o[j].getOffice() == office) {
+                    o[j].setSalary(o[j].getSalary() + (o[j].getSalary() * percent) / 100);
+                    System.out.println(o[j]);
+                }
             }
         }
     }
@@ -202,12 +230,14 @@ public class Main {
     private static void getAllEmployeeOffice(Employee[] o, int office) {
         System.out.println("Сотрудники " + office + " отдела:");
         for (int j = 0; j <= o.length - 1; j++) {
-            if (o[j].getOffice() == office) {
-                System.out.println('\n' + "Сотрудник" + '\n' + "id = " + o[j].getId() + '\n' +
-                        "Фамилия ='" + o[j].getMiddleName() + '\'' + '\n' +
-                        "Имя ='" + o[j].getFirstName() + '\'' + '\n' +
-                        "Отчество ='" + o[j].getLastName() + '\'' + '\n' +
-                        "Зарплата = " + o[j].getSalary() + '\n');
+            if (o[j] != null) {
+                if (o[j].getOffice() == office) {
+                    System.out.println('\n' + "Сотрудник" + '\n' + "id = " + o[j].getId() + '\n' +
+                            "Фамилия ='" + o[j].getMiddleName() + '\'' + '\n' +
+                            "Имя ='" + o[j].getFirstName() + '\'' + '\n' +
+                            "Отчество ='" + o[j].getLastName() + '\'' + '\n' +
+                            "Зарплата = " + o[j].getSalary() + '\n');
+                }
             }
         }
     }
@@ -215,12 +245,14 @@ public class Main {
     private static void sourceSalaryOfEmployeeLow(Employee[] o, int digit) {
         System.out.println("Сотрудники, чья зарплата меньше " + digit + " рублей");
         for (int i = 0; i <= o.length - 1; i++) {
-            if (o[i].getSalary() < digit) {
-                System.out.println('\n' + "Сотрудник" + '\n' + "id = " + o[i].getId() + '\n' +
-                        "Фамилия ='" + o[i].getMiddleName() + '\'' + '\n' +
-                        "Имя ='" + o[i].getFirstName() + '\'' + '\n' +
-                        "Отчество ='" + o[i].getLastName() + '\'' + '\n' +
-                        "Зарплата = " + o[i].getSalary() + '\n');
+            if (o[i] != null) {
+                if (o[i].getSalary() < digit) {
+                    System.out.println('\n' + "Сотрудник" + '\n' + "id = " + o[i].getId() + '\n' +
+                            "Фамилия ='" + o[i].getMiddleName() + '\'' + '\n' +
+                            "Имя ='" + o[i].getFirstName() + '\'' + '\n' +
+                            "Отчество ='" + o[i].getLastName() + '\'' + '\n' +
+                            "Зарплата = " + o[i].getSalary() + '\n');
+                }
             }
         }
     }
@@ -228,12 +260,14 @@ public class Main {
     private static void sourceSalaryOfEmployeeHigh(Employee[] o, int digit) {
         System.out.println("Сотрудники, чья зарплата больше " + digit + " рублей");
         for (int i = 0; i <= o.length - 1; i++) {
-            if (o[i].getSalary() >= digit) {
-                System.out.println('\n' + "Сотрудник" + '\n' + "id = " + o[i].getId() + '\n' +
-                        "Фамилия ='" + o[i].getMiddleName() + '\'' + '\n' +
-                        "Имя ='" + o[i].getFirstName() + '\'' + '\n' +
-                        "Отчество ='" + o[i].getLastName() + '\'' + '\n' +
-                        "Зарплата = " + o[i].getSalary() + '\n');
+            if (o[i] != null) {
+                if (o[i].getSalary() >= digit) {
+                    System.out.println('\n' + "Сотрудник" + '\n' + "id = " + o[i].getId() + '\n' +
+                            "Фамилия ='" + o[i].getMiddleName() + '\'' + '\n' +
+                            "Имя ='" + o[i].getFirstName() + '\'' + '\n' +
+                            "Отчество ='" + o[i].getLastName() + '\'' + '\n' +
+                            "Зарплата = " + o[i].getSalary() + '\n');
+                }
             }
         }
     }
