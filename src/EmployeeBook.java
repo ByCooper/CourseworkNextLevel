@@ -269,8 +269,10 @@ public class EmployeeBook {
         for (int i = 1; i <= 5; i++) {
             System.out.println("Список сотрудников " + i + " отдела: ");
             for (int j = 0; j < employees.length; j++) {
-                if (employees[j].getOffice() == i) {
-                    System.out.println(employees[j].getMiddleName() + " " + employees[j].getFirstName() + " " + employees[j].getLastName());
+                if (employees[j] != null) {
+                    if (employees[j].getOffice() == i) {
+                        System.out.println(employees[j].getMiddleName() + " " + employees[j].getFirstName() + " " + employees[j].getLastName());
+                    }
                 }
             }
         }

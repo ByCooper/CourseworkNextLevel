@@ -31,9 +31,9 @@ public class Main {
         System.out.println();
         employeeBook.allSalary();
         System.out.println();
-        employeeBook.remove(7);
+        //employeeBook.remove(7);
         System.out.println();
-        employeeBook.add(employee11);
+        //employeeBook.add(employee11);
         employeeBook.changeSalary("Тян", "Тимофей", "Дмитриевич", 26000);
         System.out.println();
         employeeBook.changeOffice("Тян", "Тимофей", "Дмитриевич", 5);
