@@ -1,17 +1,31 @@
+package Coursework;
+import org.apache.commons.lang3.StringUtils;
+
 import java.text.DecimalFormat;
 
 public class EmployeeBook {
 
-    private Employee[] employees = new Employee[10];
+    private final Employee[] employees = new Employee[10];
 
     public void add(Employee item) {
+        if (!StringUtils.isAlpha(item.getFirstName()) || !StringUtils.isAlpha(item.getMiddleName()) || !StringUtils.isAlpha(item.getLastName())) {
+            throw new RuntimeException("Bad Request 400");
+        }
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
-                employees[i] = item;
+                employees[i] = capitalizeItem(item);
                 return;
             }
         }
     }
+
+    public Employee capitalizeItem(Employee employee) {
+        employee.setFirstName(StringUtils.capitalize(employee.getFirstName()));
+        employee.setLastName(StringUtils.capitalize(employee.getLastName()));
+        employee.setMiddleName(StringUtils.capitalize(employee.getMiddleName()));
+        return employee;
+    }
+
 
     public void remove(int id) {
         for (int i = 0; i < employees.length; i++) {

@@ -1,3 +1,5 @@
+package Coursework;
+
 import java.text.DecimalFormat;
 import java.util.Arrays;
 
@@ -57,6 +59,18 @@ public class Employee {
 
     public String getMiddleName() {
         return middleName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getFirstName() {
